@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TASKS — Command Center</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="noise"></div>
+
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-label">SYS::TASK_MGR</div>
+      <h1 class="app-title">COMMAND<br><span>CENTER</span></h1>
+      <div class="header-meta">
+        <div class="live-clock" id="clock">00:00:00</div>
+        <div class="task-counter"><span id="taskCount">0</span> TASKS</div>
+      </div>
+    </header>
+
+    <!-- Input Section -->
+    <section class="input-section">
+      <div class="input-group">
+        <input
+          type="text"
+          id="taskInput"
+          class="task-input"
+          placeholder="ENTER NEW DIRECTIVE..."
+          maxlength="120"
+          autocomplete="off"
+        />
+        <div class="priority-selector">
+          <button class="priority-btn active" data-priority="low" title="Low Priority">LOW</button>
+          <button class="priority-btn" data-priority="medium" title="Medium Priority">MED</button>
+          <button class="priority-btn" data-priority="high" title="High Priority">HIGH</button>
+        </div>
+        <button class="add-btn" id="addBtn">
+          <span class="add-icon">+</span>
+          <span>ADD</span>
+        </button>
+      </div>
+      <div class="char-counter"><span id="charCount">0</span>/120</div>
+    </section>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">ALL</button>
+      <button class="filter-btn" data-filter="active">ACTIVE</button>
+      <button class="filter-btn" data-filter="completed">DONE</button>
+      <div class="filter-divider"></div>
+      <button class="filter-btn sort-btn" data-sort="priority">↑↓ PRIORITY</button>
+      <button class="filter-btn clear-btn" id="clearCompleted">CLEAR DONE</button>
+    </div>
+
+    <!-- Task List -->
+    <main class="task-list-wrapper">
+      <ul class="task-list" id="taskList">
+        <!-- Tasks injected here -->
+      </ul>
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">◎</div>
+        <p>NO DIRECTIVES FOUND<br><span>ADD A TASK ABOVE</span></p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span id="activeCount">0</span> remaining &nbsp;·&nbsp; <span id="completedCount">0</span> completed
+    </footer>
+  </div>
+
+  <script src="appc.js"></script>
+</body>
+</html>
